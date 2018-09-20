@@ -10,4 +10,5 @@ var app = angular.module("myModule", []);
                         { name: "Pam", dateOfBirth: new Date("September 10,1980") , gender: "Female", salary: 60000 },                     
                     ];  
                     $scope.employees = employees;
+                    $scope.rowLimit = 3;                   
                 }); 
