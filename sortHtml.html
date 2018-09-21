@@ -1,0 +1,37 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+        <script src="Scripts/angular.js"></script>
+        <script src="Scripts/angular.min.js"></script>
+        <script src="Scripts/sortFilter.js"></script>
+        <script src="Styles.css"></script>
+    </head>
+<body ng-app="myModule">
+    <div ng-controller="myController">
+        Sort in : <select ng-model="sortColumn">
+                <option value = "name"> Name ASC </option>
+                <option value = "gender"> Gender ASC </option>
+                <option value = "dateOfBirth"> Date of Birth ASC </option>
+                <option value= "-salary"> Salary DESC </option>
+        </select>
+        <table>
+            <thead>
+                <tr>
+                    <th> Name </th>
+                    <th> Date of Birth</th>
+                    <th> Gender </th>
+                    <th> Salary</th>
+                </tr> 
+            </thead>
+            <tbody>
+                <tr ng-repeat="employee in employees | orderBy: sortColumn  ">
+                    <td> {{employee.name | uppercase }} </td>
+                    <td> {{employee.dateOfBirth |date: "dd/mm/yyyy" }} </td>
+                    <td> {{employee.gender | lowercase }}</td>
+                    <td> {{employee.salary | number:2}} </td>
+                </tr>
+            </tbody>
+        </table>    
+</div>
+</body>
+</html>
